@@ -68,7 +68,8 @@
   --color-container: rgba(255, 255, 255, 0.05);
   --color-playbutton: #424260;
   --color-line: rgba(255, 255, 255, 0.25);
-  --color-riot: #D13639
+  --color-riot: #D13639;
+  --color-box: rgba(255, 255, 255, 0.1);
 }
 
 html, body {

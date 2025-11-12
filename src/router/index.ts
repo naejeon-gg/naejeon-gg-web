@@ -4,6 +4,7 @@ import Home from "../pages/Home.vue";
 import Schedule from "../pages/Schedule.vue";
 import History from "../pages/History.vue";
 import MatchMaker from "../pages/MatchMaker.vue";
+import Login from "../pages/Login.vue";
 
 const ROUTES = [
   {
@@ -27,6 +28,10 @@ const ROUTES = [
         component: MatchMaker
       }
     ]
+  },
+  {
+    path: "/login",
+    component: Login
   }
 ];
 
