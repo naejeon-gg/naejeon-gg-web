@@ -22,11 +22,23 @@
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
+import { authApi } from "../api/auth";
+import { AxiosError } from "axios";
+import { router } from "../router";
 
 const gameName = ref("");
 const tagLine = ref("");
 
-const handleSubmit = () => {
-  console.log(`Game Name: ${gameName.value}, Tag Line: ${tagLine.value}`);
+const handleSubmit = async () => {
+  try{
+    const res = await authApi.login(gameName.value, tagLine.value);
+    if(res.status === 200){
+      alert("라이엇 아이디가 성공적으로 연결되었습니다.");
+      router.replace("/");
+    }
+  }catch(e){
+    const error = e as AxiosError;
+    alert(error.response?.data as string);
+  }
 }
 </script>
