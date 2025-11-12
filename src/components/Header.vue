@@ -3,10 +3,10 @@
     class="w-full flex flex-col md:flex-row items-stretch md:items-start gap-2 md:gap-4">
     <div
       class="flex-1 border-b-2 border-line pb-2 pt-4 flex justify-center md:justify-end px-2 md:px-4 gap-4 md:gap-8">
-      <router-link to="/" class="font-semibold text-base md:text-lg"
+      <router-link to="/" class="font-semibold text-base md:text-lg hover:-translate-y-1 transition-transform"
         >홈</router-link
       >
-      <router-link to="/history" class="font-semibold text-base md:text-lg"
+      <router-link to="/history" class="font-semibold text-base md:text-lg hover:-translate-y-1 transition-transform"
         >내전 전적</router-link
       >
       <router-link
@@ -22,7 +22,7 @@
     >
     <div
       class="lg:flex flex-1 border-b-2 border-line pb-2 pt-4 hidden justify-center md:justify-start px-2 md:px-4">
-      <router-link to="/schedule" class="font-semibold text-base md:text-lg"
+      <router-link to="/schedule" class="font-semibold text-base md:text-lg hover:-translate-y-1 transition-transform"
         >매치 일정</router-link
       >
     </div>

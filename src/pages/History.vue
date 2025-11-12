@@ -142,18 +142,23 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, watch, computed } from "vue";
+import { ref, watch, computed, inject, type Ref } from "vue";
 import MatchItem from "../components/MatchItem.vue";
 import { router } from "../router";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
+const scrollContainer = inject<Ref<HTMLElement | null>>('scrollContainer');
 
 const handleDetailClick = (matchId: number | null) => {
   if (matchId === null) {
     router.push({ path: `/history` });
   } else {
     router.push({ path: `/history`, query: { id: matchId } });
+  }
+
+  if (scrollContainer?.value) {
+    scrollContainer.value.scrollTo({ top: 0, behavior: 'smooth' });
   }
 };
 
