@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full h-screen">
-    <main class="flex-1 px-6 flex flex-col gap-10 pb-20">
+    <main class="flex-1 px-6 flex flex-col gap-10 pb-20 overflow-y-scroll">
       <Header />
       <RouterView />
     </main>
