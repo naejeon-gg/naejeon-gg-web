@@ -71,28 +71,28 @@
     <div
       v-if="viewMode === 'calendar'"
       class="w-full rounded-xl overflow-hidden border border-line">
-      <table class="w-full">
+      <table class="w-full table-fixed">
         <thead>
           <tr>
-            <th class="p-4 text-center border-r border-b border-line bg-box">
+            <th class="p-4 text-center border-r border-b border-line bg-box w-[14.28%]">
               일
             </th>
-            <th class="p-4 text-center border-r border-b border-line bg-box">
+            <th class="p-4 text-center border-r border-b border-line bg-box w-[14.28%]">
               월
             </th>
-            <th class="p-4 text-center border-r border-b border-line bg-box">
+            <th class="p-4 text-center border-r border-b border-line bg-box w-[14.28%]">
               화
             </th>
-            <th class="p-4 text-center border-r border-b border-line bg-box">
+            <th class="p-4 text-center border-r border-b border-line bg-box w-[14.28%]">
               수
             </th>
-            <th class="p-4 text-center border-r border-b border-line bg-box">
+            <th class="p-4 text-center border-r border-b border-line bg-box w-[14.28%]">
               목
             </th>
-            <th class="p-4 text-center border-r border-b border-line bg-box">
+            <th class="p-4 text-center border-r border-b border-line bg-box w-[14.28%]">
               금
             </th>
-            <th class="p-4 text-center border-b border-line bg-box">토</th>
+            <th class="p-4 text-center border-b border-line bg-box w-[14.28%]">토</th>
           </tr>
         </thead>
         <tbody>
