@@ -2,50 +2,15 @@
   <div class="w-full flex flex-col gap-4">
     <!-- Header -->
     <div
-      class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-      <h1 class="text-2xl font-bold">매치 일정</h1>
+      class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <h1 class="text-xl md:text-2xl font-bold">매치 일정</h1>
 
-      <div class="flex items-center gap-4">
-        <!-- Calendar Navigation -->
-        <div v-if="viewMode === 'calendar'" class="flex items-center gap-4">
-          <button
-            @click="changeMonth(-1)"
-            class="px-4 py-2 bg-box border border-line rounded-lg hover:border-gray-600 transition-colors">
-            이전
-          </button>
-          <span class="text-lg font-semibold"
-            >{{ currentYear }}년 {{ currentMonth }}월</span
-          >
-          <button
-            @click="changeMonth(1)"
-            class="px-4 py-2 bg-box border border-line rounded-lg hover:border-gray-600 transition-colors">
-            다음
-          </button>
-        </div>
-
-        <!-- List View Date Selector -->
-        <div v-else class="flex items-center gap-2">
-          <select
-            v-model="selectedYear"
-            class="px-4 py-2 bg-box border border-line rounded-lg text-white hover:border-gray-600 transition-colors">
-            <option v-for="year in availableYears" :key="year" :value="year">
-              {{ year }}년
-            </option>
-          </select>
-          <select
-            v-model="selectedMonth"
-            class="px-4 py-2 bg-box border border-line rounded-lg text-white hover:border-gray-600 transition-colors">
-            <option v-for="month in 12" :key="month" :value="month">
-              {{ month }}월
-            </option>
-          </select>
-        </div>
-
-        <!-- View Toggle -->
+      <div
+        class="flex flex-col md:flex-row-reverse items-stretch md:items-center gap-3 md:gap-4">
         <div class="flex bg-box border border-line rounded-lg overflow-hidden">
           <button
             @click="viewMode = 'calendar'"
-            class="px-4 py-2 transition-colors"
+            class="flex-1 lg:flex-auto px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base transition-colors"
             :class="
               viewMode === 'calendar'
                 ? 'bg-gray-700 text-white'
@@ -55,7 +20,7 @@
           </button>
           <button
             @click="viewMode = 'list'"
-            class="px-4 py-2 transition-colors border-l border-line"
+            class="flex-1 lg:flex-auto px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base transition-colors border-l border-line"
             :class="
               viewMode === 'list'
                 ? 'bg-gray-700 text-white'
@@ -64,6 +29,44 @@
             리스트
           </button>
         </div>
+        <!-- Calendar Navigation -->
+        <div
+          v-if="viewMode === 'calendar'"
+          class="w-full lg:w-auto justify-between flex items-center gap-2 md:gap-4">
+          <button
+            @click="changeMonth(-1)"
+            class="px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base bg-box border border-line rounded-lg hover:border-gray-600 transition-colors">
+            이전
+          </button>
+          <span class="text-base md:text-lg font-semibold whitespace-nowrap"
+            >{{ currentYear }}년 {{ currentMonth }}월</span
+          >
+          <button
+            @click="changeMonth(1)"
+            class="px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base bg-box border border-line rounded-lg hover:border-gray-600 transition-colors">
+            다음
+          </button>
+        </div>
+
+        <!-- List View Date Selector -->
+        <div v-else class="flex items-center gap-2">
+          <select
+            v-model="selectedYear"
+            class="flex-1 md:w-32 px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base bg-box border border-line rounded-lg text-white hover:border-gray-600 transition-colors">
+            <option v-for="year in availableYears" :key="year" :value="year">
+              {{ year }}년
+            </option>
+          </select>
+          <select
+            v-model="selectedMonth"
+            class="flex-1 md:w-28 px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base bg-box border border-line rounded-lg text-white hover:border-gray-600 transition-colors">
+            <option v-for="month in 12" :key="month" :value="month">
+              {{ month }}월
+            </option>
+          </select>
+        </div>
+
+        <!-- View Toggle -->
       </div>
     </div>
 
@@ -74,25 +77,34 @@
       <table class="w-full table-fixed">
         <thead>
           <tr>
-            <th class="p-4 text-center border-r border-b border-line bg-box w-[14.28%]">
+            <th
+              class="p-1 md:p-3 lg:p-4 text-center text-xs md:text-sm lg:text-base border-r border-b border-line bg-box w-[14.28%]">
               일
             </th>
-            <th class="p-4 text-center border-r border-b border-line bg-box w-[14.28%]">
+            <th
+              class="p-1 md:p-3 lg:p-4 text-center text-xs md:text-sm lg:text-base border-r border-b border-line bg-box w-[14.28%]">
               월
             </th>
-            <th class="p-4 text-center border-r border-b border-line bg-box w-[14.28%]">
+            <th
+              class="p-1 md:p-3 lg:p-4 text-center text-xs md:text-sm lg:text-base border-r border-b border-line bg-box w-[14.28%]">
               화
             </th>
-            <th class="p-4 text-center border-r border-b border-line bg-box w-[14.28%]">
+            <th
+              class="p-1 md:p-3 lg:p-4 text-center text-xs md:text-sm lg:text-base border-r border-b border-line bg-box w-[14.28%]">
               수
             </th>
-            <th class="p-4 text-center border-r border-b border-line bg-box w-[14.28%]">
+            <th
+              class="p-1 md:p-3 lg:p-4 text-center text-xs md:text-sm lg:text-base border-r border-b border-line bg-box w-[14.28%]">
               목
             </th>
-            <th class="p-4 text-center border-r border-b border-line bg-box w-[14.28%]">
+            <th
+              class="p-1 md:p-3 lg:p-4 text-center text-xs md:text-sm lg:text-base border-r border-b border-line bg-box w-[14.28%]">
               금
             </th>
-            <th class="p-4 text-center border-b border-line bg-box w-[14.28%]">토</th>
+            <th
+              class="p-1 md:p-3 lg:p-4 text-center text-xs md:text-sm lg:text-base border-b border-line bg-box w-[14.28%]">
+              토
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -100,18 +112,27 @@
             <td
               v-for="(day, dayIndex) in week"
               :key="dayIndex"
-              class="p-4 align-top bg-box h-32 border-b border-line"
+              class="p-1 md:p-3 lg:p-4 align-top bg-box h-20 md:h-28 lg:h-36 border-b border-line"
               :class="[
                 { 'bg-blue-50/5': day.isToday },
                 { 'opacity-50': !day.isCurrentMonth },
                 dayIndex < 6 ? 'border-r border-line' : '',
               ]">
-              <div class="text-right text-2xl font-light mb-3 opacity-60">
+              <div
+                class="text-right text-lg md:text-xl lg:text-2xl font-light mb-1 md:mb-2 lg:mb-3 opacity-60">
                 {{ day.date }}
               </div>
-              <div v-for="event in day.events" :key="event.id" class="mb-2">
-                <div class="text-xs mb-1">{{ event.time }}</div>
-                <div class="font-bold text-sm" :style="{ color: event.color }">
+              <div
+                v-for="event in day.events"
+                :key="event.id"
+                class="mb-1 md:mb-1.5 lg:mb-2">
+                <div
+                  class="text-[10px] md:text-xs lg:text-sm mb-0.5 md:mb-1 truncate">
+                  {{ event.time }}
+                </div>
+                <div
+                  class="font-bold text-[10px] md:text-xs lg:text-sm truncate"
+                  :style="{ color: event.color }">
                   {{ event.title }}
                 </div>
               </div>
@@ -122,28 +143,43 @@
     </div>
 
     <!-- List View -->
-    <div v-else class="space-y-4">
-      <div v-if="allEvents.length === 0" class="bg-box border border-line rounded-lg p-8 flex flex-col items-center justify-center text-center">
-        <div class="text-gray-400 text-lg mb-2">일정이 없습니다</div>
-        <div class="text-gray-500 text-sm">선택한 기간에 예정된 매치가 없습니다</div>
+    <div v-else class="space-y-2 md:space-y-3 lg:space-y-4">
+      <div
+        v-if="allEvents.length === 0"
+        class="bg-box border border-line rounded-lg p-6 md:p-8 lg:p-10 flex flex-col items-center justify-center text-center">
+        <div class="text-gray-400 text-base md:text-lg lg:text-xl mb-1 md:mb-2">
+          일정이 없습니다
+        </div>
+        <div class="text-gray-500 text-xs md:text-sm lg:text-base">
+          선택한 기간에 예정된 매치가 없습니다
+        </div>
       </div>
       <div
         v-for="event in allEvents"
         :key="event.id"
-        class="bg-box border border-line rounded-lg p-4 flex items-center justify-between">
-        <div class="flex items-center gap-4">
-          <div class="text-center">
-            <div class="text-3xl font-bold opacity-60">{{ event.date }}</div>
-            <div class="text-xs text-gray-400">{{ event.month }}월</div>
+        class="bg-box border border-line rounded-lg p-3 md:p-4 lg:p-6 flex items-center justify-between hover:border-gray-600 transition-colors">
+        <div class="flex items-center gap-2 md:gap-4 lg:gap-6">
+          <div class="text-center min-w-[50px] md:min-w-[60px] lg:min-w-[70px]">
+            <div class="text-2xl md:text-3xl lg:text-4xl font-bold opacity-60">
+              {{ event.date }}
+            </div>
+            <div class="text-[10px] md:text-xs lg:text-sm text-gray-400">
+              {{ event.month }}월
+            </div>
           </div>
-          <div class="border-l border-line pl-4">
-            <div class="font-bold text-lg" :style="{ color: event.color }">
+          <div class="border-l border-line pl-2 md:pl-4 lg:pl-6">
+            <div
+              class="font-bold text-sm md:text-lg lg:text-xl"
+              :style="{ color: event.color }">
               {{ event.title }}
             </div>
-            <div class="text-gray-400 text-sm mt-1">{{ event.time }}</div>
+            <div
+              class="text-gray-400 text-xs md:text-sm lg:text-base mt-0.5 md:mt-1">
+              {{ event.time }}
+            </div>
           </div>
         </div>
-        <div class="text-gray-400 text-sm">
+        <div class="text-gray-400 text-xs md:text-sm lg:text-base font-medium">
           {{ event.dayOfWeek }}
         </div>
       </div>
