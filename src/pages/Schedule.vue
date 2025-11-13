@@ -6,8 +6,8 @@
       <h1 class="text-xl md:text-2xl font-bold">매치 일정</h1>
 
       <div
-        class="flex flex-col md:flex-row-reverse items-stretch md:items-center gap-3 md:gap-4">
-        <div class="flex bg-box border border-line rounded-lg overflow-hidden">
+        class=" flex flex-col md:flex-row-reverse items-stretch md:items-center gap-3 md:gap-4">
+        <div class="min-w-35 flex bg-box border border-line rounded-lg overflow-hidden">
           <button
             @click="viewMode = 'calendar'"
             class="flex-1 md:flex-auto px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base transition-colors"
