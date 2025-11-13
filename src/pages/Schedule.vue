@@ -123,6 +123,10 @@
 
     <!-- List View -->
     <div v-else class="space-y-4">
+      <div v-if="allEvents.length === 0" class="bg-box border border-line rounded-lg p-8 flex flex-col items-center justify-center text-center">
+        <div class="text-gray-400 text-lg mb-2">일정이 없습니다</div>
+        <div class="text-gray-500 text-sm">선택한 기간에 예정된 매치가 없습니다</div>
+      </div>
       <div
         v-for="event in allEvents"
         :key="event.id"
