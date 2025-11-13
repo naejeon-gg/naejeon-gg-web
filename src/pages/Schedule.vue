@@ -10,7 +10,7 @@
         <div class="flex bg-box border border-line rounded-lg overflow-hidden">
           <button
             @click="viewMode = 'calendar'"
-            class="flex-1 lg:flex-auto px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base transition-colors"
+            class="flex-1 md:flex-auto px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base transition-colors"
             :class="
               viewMode === 'calendar'
                 ? 'bg-gray-700 text-white'
@@ -20,7 +20,7 @@
           </button>
           <button
             @click="viewMode = 'list'"
-            class="flex-1 lg:flex-auto px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base transition-colors border-l border-line"
+            class="flex-1 md:flex-auto px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base transition-colors border-l border-line"
             :class="
               viewMode === 'list'
                 ? 'bg-gray-700 text-white'
